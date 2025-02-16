@@ -175,7 +175,10 @@ class Sublist3rScan:
         
         unique_subdomains = sorted(set(subdomains))
         print(f"\nSe encontraron {len(unique_subdomains)} subdominios únicos")
-        
+        if len(unique_subdomains) == 0:
+            print("\nNo se encontraron subdominios. No se realizará guardado.")
+            return
+            
         guardar = input("\n¿Desea guardar los resultados? (s/n): ")
         if guardar.lower() == 's':
             filename = f"subdomains_{domain}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
